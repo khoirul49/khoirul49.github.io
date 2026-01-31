@@ -1,3 +1,40 @@
+:root{
+  --bg:#ffffff;
+  --text:#0f172a;
+  --section:#ffffff;
+  --project:#f5f9ff;
+  --card:#ffffff;
+  --contact1:#f8f9fa;
+  --contact2:#eef3ff;
+  --footer1:#0d6efd;
+  --footer2:#0b5ed7;
+  --hero1:#0d6efd;
+  --hero2:#0b5ed7;
+}
+
+.dark-mode{
+  --bg:#0f1115;
+  --text:#e5e7eb;
+  --section:#0f1115;
+  --project:#0b1220;
+  --card:#121826;
+  --contact1:#0b1220;
+  --contact2:#0f172a;
+  --footer1:#020617;
+  --footer2:#020617;
+  --hero1:#020617;
+  --hero2:#0b1220;
+}
+
+/* Apply */
+body{background:var(--bg);color:var(--text);}
+#about{background:var(--section);}
+#projects{background:var(--project);}
+#contact{background:linear-gradient(135deg,var(--contact1),var(--contact2));}
+footer{background:linear-gradient(135deg,var(--footer1),var(--footer2));}
+.hero{background:linear-gradient(135deg,var(--hero1),var(--hero2));}
+.card{background:var(--card);}
+
 /* ================= GLOBAL ================= */
 body {
   font-family: 'Poppins', sans-serif;
