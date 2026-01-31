@@ -166,5 +166,149 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>AOS.init({once:true,duration:1000});</script>
+<!-- ================= CS SYSTEM ================= -->
+<div class="cs-panel">
+  <button class="cs-btn" onclick="toggleCS()">💬</button>
+
+  <div class="cs-box" id="csBox">
+    <div class="cs-header">Customer Support</div>
+    <div class="cs-body" id="csBody">
+      <div class="cs-msg bot">Halo 👋 Selamat datang di layanan CS Khoirul Anam. Ada yang bisa kami bantu?</div>
+    </div>
+    <div class="cs-footer">
+      <div class="input-group">
+        <input type="text" id="csInput" class="form-control" placeholder="Tulis pesan...">
+        <button class="btn btn-primary" onclick="sendMsg()">Kirim</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.cs-panel{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  z-index:9999;
+}
+.cs-btn{
+  background:#0d6efd;
+  color:white;
+  border:none;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  font-size:26px;
+  box-shadow:0 5px 15px rgba(0,0,0,.3);
+  transition:.3s;
+}
+.cs-btn:hover{transform:scale(1.1)}
+
+.cs-box{
+  width:320px;
+  height:420px;
+  background:white;
+  border-radius:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
+  position:absolute;
+  bottom:80px;
+  right:0;
+  display:none;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+.cs-header{
+  background:#0d6efd;
+  color:white;
+  padding:12px;
+  font-weight:600;
+  text-align:center;
+}
+
+.cs-body{
+  flex:1;
+  padding:10px;
+  overflow-y:auto;
+  font-size:14px;
+  background:#f7f9fc;
+}
+
+.cs-footer{
+  padding:10px;
+  border-top:1px solid #eee;
+  background:#fff;
+}
+
+.cs-msg{
+  background:#e9ecef;
+  padding:8px 12px;
+  border-radius:10px;
+  margin-bottom:8px;
+  max-width:80%;
+  animation:fadeIn .3s ease;
+}
+
+.cs-msg.user{
+  background:#0d6efd;
+  color:white;
+  margin-left:auto;
+}
+
+.cs-msg.bot{
+  background:#dee2e6;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(5px)}
+  to{opacity:1;transform:translateY(0)}
+}
+</style>
+
+<script>
+function toggleCS(){
+  const box=document.getElementById('csBox');
+  box.style.display = box.style.display==='flex'?'none':'flex';
+}
+
+function sendMsg(){
+  const input=document.getElementById('csInput');
+  const body=document.getElementById('csBody');
+
+  if(input.value.trim()==='') return;
+
+  // user msg
+  const userMsg=document.createElement('div');
+  userMsg.className='cs-msg user';
+  userMsg.innerText=input.value;
+  body.appendChild(userMsg);
+
+  const text = input.value.toLowerCase();
+
+  // bot logic
+  setTimeout(()=>{
+    const bot=document.createElement('div');
+    bot.className='cs-msg bot';
+
+    if(text.includes('harga')){
+      bot.innerText='Untuk info harga, silakan jelaskan kebutuhan website Anda 🙏';
+    }else if(text.includes('website')){
+      bot.innerText='Kami melayani pembuatan website profesional, landing page, dan web app 🚀';
+    }else if(text.includes('kontak')){
+      bot.innerText='Silakan tinggalkan email/WA, CS kami akan menghubungi Anda 📞';
+    }else{
+      bot.innerText='Terima kasih 🙏 CS kami akan segera membalas pesan Anda.';
+    }
+
+    body.appendChild(bot);
+    body.scrollTop=body.scrollHeight;
+  },700);
+
+  input.value='';
+  body.scrollTop=body.scrollHeight;
+}
+</script>
+<!-- ================= END CS SYSTEM ================= -->
+
 </body>
 </html>
