@@ -3,6 +3,74 @@ body {
   font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
 }
+/* ================= DARK MODE SYSTEM ================= */
+:root{
+  --bg:#ffffff;
+  --text:#0f172a;
+  --section:#ffffff;
+  --project:#f5f9ff;
+  --card:#ffffff;
+  --contact1:#f8f9fa;
+  --contact2:#eef3ff;
+  --footer1:#0d6efd;
+  --footer2:#0b5ed7;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  transition:.4s;
+}
+
+#about{background:var(--section);}
+#projects{background:var(--project);}
+#contact{background:linear-gradient(135deg,var(--contact1),var(--contact2));}
+footer{background:linear-gradient(135deg,var(--footer1),var(--footer2));}
+
+/* ===== DARK MODE VARIANT ===== */
+.dark-mode{
+  --bg:#0f1115;
+  --text:#e5e7eb;
+  --section:#0f1115;
+  --project:#0b1220;
+  --card:#121826;
+  --contact1:#0b1220;
+  --contact2:#0f172a;
+  --footer1:#020617;
+  --footer2:#020617;
+}
+
+/* components override */
+.dark-mode .card{
+  background:var(--card);
+  color:#e5e7eb;
+}
+
+.dark-mode .navbar{
+  background:rgba(2,6,23,0.75) !important;
+  backdrop-filter: blur(12px);
+}
+
+.dark-mode .jumbotron{
+  background:linear-gradient(135deg,#020617,#0b1220);
+}
+
+.dark-mode .btn-primary{
+  box-shadow:0 0 0 rgba(0,0,0,0);
+}
+
+.dark-mode .btn-primary:hover{
+  box-shadow:0 10px 25px rgba(59,130,246,0.35);
+}
+
+.dark-mode .text-muted{
+  color:#9ca3af !important;
+}
+
+.dark-mode .cs-box{background:#020617;}
+.dark-mode .cs-body{background:#0f1115;}
+.dark-mode .cs-msg.bot{background:#1f2937;color:#fff;}
+.dark-mode .cs-msg.user{background:#2563eb;}
 
 /* Navbar */
 .navbar {
