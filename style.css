@@ -1,9 +1,13 @@
-/* Global */
+/* ================= GLOBAL ================= */
 body {
   font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
+  background:var(--bg);
+  color:var(--text);
+  transition:.4s;
 }
-/* ================= DARK MODE SYSTEM ================= */
+
+/* ================= THEME VARIABLES ================= */
 :root{
   --bg:#ffffff;
   --text:#0f172a;
@@ -14,20 +18,11 @@ body {
   --contact2:#eef3ff;
   --footer1:#0d6efd;
   --footer2:#0b5ed7;
+  --hero1:#0d6efd;
+  --hero2:#0b5ed7;
 }
 
-body{
-  background:var(--bg);
-  color:var(--text);
-  transition:.4s;
-}
-
-#about{background:var(--section);}
-#projects{background:var(--project);}
-#contact{background:linear-gradient(135deg,var(--contact1),var(--contact2));}
-footer{background:linear-gradient(135deg,var(--footer1),var(--footer2));}
-
-/* ===== DARK MODE VARIANT ===== */
+/* ================= DARK MODE ================= */
 .dark-mode{
   --bg:#0f1115;
   --text:#e5e7eb;
@@ -38,50 +33,20 @@ footer{background:linear-gradient(135deg,var(--footer1),var(--footer2));}
   --contact2:#0f172a;
   --footer1:#020617;
   --footer2:#020617;
+  --hero1:#020617;
+  --hero2:#0b1220;
 }
 
-/* components override */
-.dark-mode .card{
-  background:var(--card);
-  color:#e5e7eb;
-}
-
-.dark-mode .navbar{
-  background:rgba(2,6,23,0.75) !important;
-  backdrop-filter: blur(12px);
-}
-
-.dark-mode .jumbotron{
-  background:linear-gradient(135deg,#020617,#0b1220);
-}
-
-.dark-mode .btn-primary{
-  box-shadow:0 0 0 rgba(0,0,0,0);
-}
-
-.dark-mode .btn-primary:hover{
-  box-shadow:0 10px 25px rgba(59,130,246,0.35);
-}
-
-.dark-mode .text-muted{
-  color:#9ca3af !important;
-}
-
-.dark-mode .cs-box{background:#020617;}
-.dark-mode .cs-body{background:#0f1115;}
-.dark-mode .cs-msg.bot{background:#1f2937;color:#fff;}
-.dark-mode .cs-msg.user{background:#2563eb;}
-
-/* Navbar */
+/* ================= NAVBAR ================= */
 .navbar {
   backdrop-filter: blur(8px);
 }
 
-/* Hero / Jumbotron */
+/* ================= HERO / JUMBOTRON ================= */
 .jumbotron {
   padding-top: 8rem;
   padding-bottom: 6rem;
-  background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+  background: linear-gradient(135deg, var(--hero1), var(--hero2));
   color: #fff;
 }
 
@@ -94,26 +59,30 @@ footer{background:linear-gradient(135deg,var(--footer1),var(--footer2));}
   transform: scale(1.05);
 }
 
-/* Section global */
+/* ================= SECTION ================= */
 section {
   padding-top: 6rem;
   padding-bottom: 6rem;
 }
 
-/* About */
 #about {
-  background: #ffffff;
+  background: var(--section);
 }
 
-/* Projects */
 #projects {
-  background-color: #f5f9ff;
+  background: var(--project);
 }
 
+#contact {
+  background: linear-gradient(135deg, var(--contact1), var(--contact2));
+}
+
+/* ================= CARD ================= */
 .card {
   border: none;
   border-radius: 16px;
   overflow: hidden;
+  background:var(--card);
   transition: 0.4s;
 }
 
@@ -130,12 +99,7 @@ section {
   transform: scale(1.08);
 }
 
-/* Contact */
-#contact {
-  background: linear-gradient(135deg, #f8f9fa, #eef3ff);
-}
-
-/* Button */
+/* ================= BUTTON ================= */
 .btn-primary {
   border-radius: 30px;
   padding: 10px 25px;
@@ -145,6 +109,30 @@ section {
 .btn-primary:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(13, 110, 253, 0.4);
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background: linear-gradient(135deg, var(--footer1), var(--footer2));
+  color: white;
+}
+
+/* ================= DARK COMPONENT OVERRIDE ================= */
+.dark-mode .navbar{
+  background:rgba(2,6,23,0.75) !important;
+  backdrop-filter: blur(12px);
+}
+
+.dark-mode .text-muted{
+  color:#9ca3af !important;
+}
+
+/* CS SYSTEM */
+.dark-mode .cs-box{background:#020617;}
+.dark-mode .cs-body{background:#0f1115;}
+.dark-mode .cs-msg.bot{background:#1f2937;color:#fff;}
+.dark-mode .cs-msg.user{background:#2563eb;}
+
 }
 
 /* Footer */
