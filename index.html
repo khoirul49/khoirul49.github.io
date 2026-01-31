@@ -309,6 +309,34 @@ function sendMsg(){
 }
 </script>
 <!-- ================= END CS SYSTEM ================= -->
+<script>
+/* ===== AUTO DARK MODE OS ===== */
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+function applyTheme(mode){
+  if(mode === 'dark'){
+    document.body.classList.add('dark-mode');
+  }else{
+    document.body.classList.remove('dark-mode');
+  }
+}
+
+/* load saved or OS */
+const savedTheme = localStorage.getItem('theme');
+
+if(savedTheme){
+  applyTheme(savedTheme);
+}else{
+  applyTheme(prefersDark.matches ? 'dark' : 'light');
+}
+
+/* realtime OS change */
+prefersDark.addEventListener('change', e=>{
+  if(!localStorage.getItem('theme')){
+    applyTheme(e.matches ? 'dark' : 'light');
+  }
+});
+</script>
 
 </body>
 </html>
